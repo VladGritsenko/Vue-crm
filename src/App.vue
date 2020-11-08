@@ -23,7 +23,7 @@
   };
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -41,5 +41,11 @@ ul {
 
 .ant-row.ant-form-item {
   text-align: left;
+}
+
+.ant-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 </style>

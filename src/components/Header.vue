@@ -41,6 +41,7 @@
     methods: {
       handleOk() {
         this.isLogout = false;
+        this.$store.commit('clearUserInfo');
         return this.$router.push('/login');
       },
       handleCancel() {
@@ -50,7 +51,6 @@
         return this.$router.push('/profile');
       },
       handleLogout() {
-        this.$store.commit('clearUserInfo');
         return this.isLogout = true;
       }
     },
