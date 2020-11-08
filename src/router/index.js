@@ -23,7 +23,7 @@ const routes = [
     component: () => import('../views/History.vue')
   },
   {
-    path: '/bankAccount',
+    path: '/',
     name: 'bankAccount',
     meta: { layout: 'main' },
     component: () => import('../views/BankAccount.vue')

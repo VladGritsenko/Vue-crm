@@ -8,6 +8,7 @@
           :to="item.route"
           class="menuItem"
           active-class="activeMenuItem"
+          :exact="item.exact"
       >
         <a-icon :type="item.icon" class="itemIcon"/>
         <div class="itemName">{{ item.name }}</div>
@@ -21,11 +22,11 @@
     name: 'Sidebar',
     data: () => ({
       sidebarData: [
-        {id: 0, name: 'Bank Account', route: '/bankAccount', icon: 'dollar'},
-        {id: 1, name: 'History', route: '/history', icon: 'history'},
-        {id: 2, name: 'Planning', route: '/planning', icon: 'line-chart'},
-        {id: 3, name: 'New Entry', route: '/newEntry', icon: 'file'},
-        {id: 4, name: 'Categories', route: '/categories', icon: 'unordered-list'},
+        {id: 0, name: 'Bank Account', route: '/', icon: 'dollar', exact: true},
+        {id: 1, name: 'History', route: '/history', icon: 'history', exact: false},
+        {id: 2, name: 'Planning', route: '/planning', icon: 'line-chart', exact: false},
+        {id: 3, name: 'New Entry', route: '/newEntry', icon: 'file', exact: false},
+        {id: 4, name: 'Categories', route: '/categories', icon: 'unordered-list', exact: false},
       ]
     }),
   }

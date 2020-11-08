@@ -20,6 +20,21 @@
         },
       ]"
       >
+        <a-icon slot="prefix" type="mail" style="color: rgba(0,0,0,.25)" />
+      </a-input>
+    </a-form-item>
+    <a-form-item label="Username" required>
+      <a-input
+          placeholder="Enter your username"
+          v-decorator="[
+        'username',
+        {
+          rules: [
+            { required: true, message: 'Please input your username!' },
+          ],
+        },
+      ]"
+      >
         <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
       </a-input>
     </a-form-item>
@@ -83,9 +98,9 @@
     }),
     methods: {
       handleSubmit() {
-        this.form.validateFields((err, values) => {
+        this.form.validateFields(async (err, values) => {
           if (!err) {
-            console.log('Received values of form: ', values);
+            await this.$store.dispatch('registration', values) && await this.$router.push('/');
           }
         });
       },

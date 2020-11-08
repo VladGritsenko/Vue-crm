@@ -6,7 +6,7 @@
     <span class="time">{{ this.date }}</span>
     <a-dropdown :trigger="['click']" class="dropdown">
       <a-space>
-        <span>Username</span>
+        <span>{{ username }}</span>
         <a-icon type="down" />
       </a-space>
       <a-menu slot="overlay" class="dropdownMenu">
@@ -33,6 +33,11 @@
       date: null,
       isLogout: false,
     }),
+    computed: {
+      username() {
+        return this.$store.getters.userInfo.name;
+      }
+    },
     methods: {
       handleOk() {
         this.isLogout = false;
@@ -45,6 +50,7 @@
         return this.$router.push('/profile');
       },
       handleLogout() {
+        this.$store.commit('clearUserInfo');
         return this.isLogout = true;
       }
     },

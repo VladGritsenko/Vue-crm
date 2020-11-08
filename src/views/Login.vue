@@ -66,9 +66,9 @@
     }),
     methods: {
       handleSubmit() {
-        this.form.validateFields((err, values) => {
+        this.form.validateFields(async (err, values) => {
           if (!err) {
-            console.log('Received values of form: ', values);
+            await this.$store.dispatch('login', values) && await this.$router.push('/');
           }
         });
       }

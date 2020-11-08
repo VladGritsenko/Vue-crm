@@ -23,10 +23,8 @@
   }
 
   .layoutContainer {
-    height: 60vh;
     width: 50vw;
     max-width: 800px;
-    max-height: 600px;
     display: flex;
     justify-content: center;
     padding: 30px;

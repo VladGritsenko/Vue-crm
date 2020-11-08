@@ -23,6 +23,9 @@
 
   export default {
     name: 'MainLayout',
+    async mounted() {
+      await this.$store.dispatch('getUserInfo');
+    },
     components: {
       Sidebar, Header
     }
