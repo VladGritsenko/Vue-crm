@@ -4,7 +4,7 @@ import moment from 'moment';
 
 export default {
   state: {
-    isLoading: true,
+    isLoading: false,
     categories: []
   },
   mutations: {
@@ -43,6 +43,7 @@ export default {
   actions: {
     async getCategories({ commit, dispatch }) {
       try {
+        commit('setLoader', true);
         const userId = await dispatch('getCurrentUserId');
         const categories = (await firebase.database().ref(`/users/${userId}/categories`).once('value')).val();
         const categoriesData = Object.keys(categories).map((key, index) => ({...categories[key], id: key, index: index + 1}));

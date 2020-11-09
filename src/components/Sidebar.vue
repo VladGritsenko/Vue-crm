@@ -22,10 +22,10 @@
     name: 'Sidebar',
     data: () => ({
       sidebarData: [
-        {id: 0, name: 'Bank Account', route: '/', icon: 'dollar', exact: true},
+        {id: 0, name: 'Bill', route: '/', icon: 'dollar', exact: true},
         {id: 1, name: 'History', route: '/history', icon: 'history', exact: false},
         {id: 2, name: 'Planning', route: '/planning', icon: 'line-chart', exact: false},
-        {id: 3, name: 'New Entry', route: '/newEntry', icon: 'file', exact: false},
+        {id: 3, name: 'New record', route: '/newEntry', icon: 'file', exact: false},
         {id: 4, name: 'Categories', route: '/categories', icon: 'unordered-list', exact: false},
       ]
     }),

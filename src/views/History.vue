@@ -1,20 +1,77 @@
 <template>
-  <a-spin :spinning="false">
+  <a-spin :spinning="this.$store.getters.recordsIsLoading">
     <div class="pageWrapper">
       <div class="titleContainer">
         <h2 class="title">History</h2>
       </div>
       <div class="pageContainer">
-
+        <a-table
+            :columns="historyColumns"
+            :data-source="this.$store.getters.recordsList"
+        >
+          <template slot="type" slot-scope="record">
+            <span
+                :style="{backgroundColor: record.type === 'Outcome' ? '#cd2a22' : '#0e3366'}"
+                class="typeLabel"
+            >
+              {{ record.type }}
+            </span>
+          </template>
+          <template slot="sum" slot-scope="record">
+              {{ new Intl.NumberFormat('uk-UK', { style: 'currency', currency: 'UAH' })
+            .format(Number(record.sum).toFixed(2)) }}
+          </template>
+        </a-table>
       </div>
     </div>
   </a-spin>
 </template>
 
 <script>
-
 export default {
   name: 'History',
+  metaInfo: {
+    title: 'History | Grytsenko CRM'
+  },
+  data() {
+    return {
+      historyColumns: [
+        {
+          title: '№',
+          dataIndex: 'index',
+          key: 'index',
+        },
+        {
+          title: 'Category',
+          dataIndex: 'categoryName',
+          key: 'categoryName',
+        },
+        {
+          title: 'Amount',
+          key: 'sum',
+          scopedSlots: { customRender: 'sum' },
+        },
+        {
+          title: 'Type',
+          key: 'type',
+          scopedSlots: { customRender: 'type' }
+        },
+        {
+          title: 'Date',
+          dataIndex: 'date',
+          key: 'date',
+        },
+        {
+          title: 'Description',
+          dataIndex: 'description',
+          key: 'description',
+        },
+      ]
+    }
+  },
+  async mounted() {
+    await this.$store.dispatch('getRecords');
+  },
   components: {
   }
 }
@@ -56,5 +113,11 @@ export default {
     background-color: #0e3366;
     color: #fff;
     cursor: pointer;
+  }
+
+  .typeLabel {
+    color: #fff;
+    border-radius: 5px;
+    padding: 4px;
   }
 </style>

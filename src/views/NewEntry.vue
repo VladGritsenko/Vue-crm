@@ -1,7 +1,7 @@
 <template>
   <div class="pageWrapper">
     <div class="titleContainer">
-      <h2 class="title">New Entry</h2>
+      <h2 class="title">New record</h2>
     </div>
     <a-spin :spinning="this.$store.getters.isLoading">
       <div class="pageContainer">
@@ -44,14 +44,14 @@
               </a-radio>
             </a-radio-group>
           </a-form-item>
-          <a-form-item label="Sum" required>
+          <a-form-item label="Amount" required>
             <a-input
-                placeholder="Enter your sum"
+                placeholder="Enter your amount"
                 v-decorator="[
               'sum',
               {
                 rules: [
-                  { required: true, message: 'Please input your category name!' },
+                  { required: true, message: 'Please input amount' },
                 ],
               },
             ]"
@@ -100,6 +100,9 @@
 
   export default {
     name: 'NewEntry',
+    metaInfo: {
+      title: 'New record | Grytsenko CRM'
+    },
     async mounted() {
       await this.$store.dispatch('getCategories');
       await this.$store.dispatch('getUserInfo');
@@ -121,7 +124,15 @@
                     ? Number(currentBill) + Number(values.sum)
                     : Number(currentBill) - Number(values.sum);
 
-                await this.$store.dispatch('createRecord', {record: values, bill: newBill});
+                const currentCategoryName = this.$store.getters.categories
+                  .find(item => item.id === values.category)?.name;
+
+                await this.$store.dispatch('createRecord', {
+                  record: values,
+                  bill: newBill,
+                  categoryName: currentCategoryName
+                });
+
                 await this.$store.dispatch('getUserInfo');
                 await this.form.resetFields();
               } else {

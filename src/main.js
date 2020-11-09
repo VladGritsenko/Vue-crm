@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import VueMeta from 'vue-meta';
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
@@ -11,6 +12,7 @@ import 'firebase/auth';
 import 'firebase/database';
 
 Vue.use(Antd);
+Vue.use(VueMeta);
 Vue.config.productionTip = false;
 
 firebase.initializeApp({

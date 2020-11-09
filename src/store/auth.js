@@ -21,7 +21,7 @@ export default {
             bill: 1000,
             name: username,
             phone: '',
-            email: '',
+            email,
             city: ''
           });
           await firebase.database()

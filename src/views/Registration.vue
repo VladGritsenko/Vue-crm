@@ -91,6 +91,9 @@
 <script>
   export default {
     name: 'Registration',
+    metaInfo: {
+      title: 'Registration | Grytsenko CRM'
+    },
     beforeCreate() {
       this.form = this.$form.createForm(this, { name: 'registration' });
     },

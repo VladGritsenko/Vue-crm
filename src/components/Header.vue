@@ -39,9 +39,9 @@
       }
     },
     methods: {
-      handleOk() {
+      async handleOk() {
+        await this.$store.commit('clearUserInfo');
         this.isLogout = false;
-        this.$store.commit('clearUserInfo');
         return this.$router.push('/login');
       },
       handleCancel() {

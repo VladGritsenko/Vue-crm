@@ -59,6 +59,9 @@
 
   export default {
     name: 'Categories',
+    metaInfo: {
+      title: 'Categories | Grytsenko CRM'
+    },
     data: () => ({
       addCategoryModalIsVisible: false,
       editCategoryModalIsVisible: false,

@@ -1,19 +1,23 @@
 {
+  "homepage": "https://mate-academy.github.io/",
   "name": "crm-vue",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "ant-design-vue": "^1.7.2",
     "core-js": "^3.6.5",
     "firebase": "^8.0.1",
+    "gh-pages": "^3.1.0",
     "moment": "^2.29.1",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
+    "vue-meta": "^2.4.0",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
   },

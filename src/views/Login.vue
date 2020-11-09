@@ -59,6 +59,9 @@
 <script>
   export default {
     name: 'Login',
+    metaInfo: {
+      title: 'Login | Grytsenko CRM'
+    },
     beforeCreate() {
       this.form = this.$form.createForm(this, { name: 'login' });
     },

@@ -1,13 +1,13 @@
 <template>
   <div class="pageContainer">
     <div class="currencyContainer">
-      <h2 class="title">Bill</h2>
+      <h2 class="title">Bill in currencies</h2>
       <div class="container">
         <a-table :columns="billColumns" :data-source="billList" :pagination="false"/>
       </div>
     </div>
     <div class="currencyListContainer">
-      <h2 class="title">Currency Exchange</h2>
+      <h2 class="title">Currencies rates</h2>
       <div class="container">
         <a-table :columns="columns" :data-source="tableData" :pagination="false"/>
       </div>
@@ -20,6 +20,9 @@
 
   export default {
     name: 'BankAccount',
+    metaInfo: {
+      title: 'Bill | Grytsenko CRM'
+    },
     data: () => ({
       currencyList: {},
       columns: [
