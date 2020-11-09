@@ -24,7 +24,12 @@
       title: 'Bill | Grytsenko CRM'
     },
     data: () => ({
-      currencyList: {},
+      currencyList: {
+        EUR: 1,
+        RUB: 90.40642,
+        UAH: 33.449736,
+        USD: 1.189931
+      },
       columns: [
         {
           title: 'Currency',
@@ -55,10 +60,6 @@
         },
       ],
     }),
-    async mounted() {
-      const currencyList = await this.$store.dispatch('getCurrency');
-      this.currencyList = currencyList?.rates;
-    },
     computed: {
       billList() {
         const bill = this.$store.getters.userInfo.bill || 0;

@@ -27,7 +27,7 @@ const router = new VueRouter({
       component: () => import('../views/History.vue')
     },
     {
-      path: '/Vue-crm',
+      path: '/',
       name: 'bankAccount',
       meta: { layout: 'main', auth: true },
       component: () => import('../views/BankAccount.vue')
